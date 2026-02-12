@@ -1,0 +1,10 @@
+services:
+  ubuntu:
+    build:
+      context: ./ubuntu
+    ports:
+      - "3005:3005"
+    env_file:
+      - ./ubuntu/.env
+    stdin_open: true
+    tty: true

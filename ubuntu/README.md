@@ -2,7 +2,29 @@
 
 An MCP server that exposes a single tool — `exec_command` — for executing shell commands inside a Docker container. Uses the [Streamable HTTP](https://modelcontextprotocol.io/specification/2025-03-26/basic/transports#streamable-http) transport.
 
-## Quick Start
+## Dev Installation (Bare Metal)
+
+Provision a fresh Ubuntu/Debian machine with all dependencies and the `clawdius` user:
+
+```bash
+# curl
+curl -fsSL https://raw.githubusercontent.com/ruska-ai/sandboxes/refs/heads/feat/1-openclaw-install/ubuntu/setup.sh -o setup.sh
+
+# wget
+wget -qO setup.sh https://raw.githubusercontent.com/ruska-ai/sandboxes/refs/heads/feat/1-openclaw-install/ubuntu/setup.sh
+
+sudo bash setup.sh
+```
+
+The script installs Node.js 22.x, GitHub CLI, agent-browser + Chromium, and creates a `clawdius` user with sudo access. You will be prompted for a password (default: `clawdius`).
+
+For non-interactive use (e.g. CI):
+
+```bash
+sudo bash setup.sh --non-interactive
+```
+
+## Quick Start (Docker)
 
 ```bash
 cd orchestra
