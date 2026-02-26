@@ -1,10 +1,19 @@
 services:
-  ubuntu:
+  sandbox-dev:
     build:
-      context: ./ubuntu
+      context: .
+      args:
+        USERNAME: ${USERNAME:-dev}
+      secrets:
+        - user_password
+    container_name: sandbox-dev
     ports:
-      - "3005:3005"
-    env_file:
-      - ./ubuntu/.env
-    stdin_open: true
-    tty: true
+      - "2222:22"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
+secrets:
+  user_password:
+    file: ${PASSWORD_FILE:-./.secrets/dev_password.txt}
