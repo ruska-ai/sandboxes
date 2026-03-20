@@ -8,7 +8,7 @@ RUN apt-get update \
       python3 \
  && curl -fsSL https://deb.nodesource.com/setup_22.x | bash - \
  && apt-get install -y --no-install-recommends nodejs \
- # Install GitHub CLI
+ # Install GitHub CLI \
  && curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg \
       -o /usr/share/keyrings/githubcli-archive-keyring.gpg \
  && echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" \
@@ -20,6 +20,9 @@ RUN apt-get update \
 # Install agent-browser + Chromium with system deps
 RUN npm install -g agent-browser \
  && npx playwright install-deps chromium
+
+# Install Claude Code by default when available
+RUN npm install -g @anthropic-ai/claude-code || true
 
 COPY package.json index.js /app/
 RUN cd /app && npm install --production
