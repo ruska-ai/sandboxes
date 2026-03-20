@@ -19,15 +19,21 @@ fail() { echo -e "${RED}FAIL${NC}: $1 — $2"; FAIL=$((FAIL+1)); }
 
 next_id() { REQ_ID=$((REQ_ID+1)); echo $REQ_ID; }
 
-# JSON-RPC helper
+# JSON-RPC helper — handles both plain JSON and SSE responses
 rpc() {
-  local method="$1" params="$2" id
+  local method="$1" params="$2" id raw
   id=$(next_id)
   local headers=(-H "Content-Type: application/json" -H "Accept: application/json, text/event-stream")
   [ -n "$SESSION_ID" ] && headers+=(-H "Mcp-Session-Id: $SESSION_ID")
-  curl -s -D /tmp/mcp_headers -X POST "$SERVER/mcp" \
+  raw=$(curl -s -D /tmp/mcp_headers -X POST "$SERVER/mcp" \
     "${headers[@]}" \
-    -d "{\"jsonrpc\":\"2.0\",\"id\":$id,\"method\":\"$method\",\"params\":$params}"
+    -d "{\"jsonrpc\":\"2.0\",\"id\":$id,\"method\":\"$method\",\"params\":$params}")
+  # If the response is SSE, extract JSON from the last data: line
+  if echo "$raw" | head -1 | grep -q "^event:"; then
+    echo "$raw" | grep '^data: ' | sed 's/^data: //' | tail -1
+  else
+    echo "$raw"
+  fi
 }
 
 tool_call() {
