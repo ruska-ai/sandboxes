@@ -5,6 +5,7 @@ RUN apt-get update \
       ca-certificates \
       curl \
       jq \
+      python3 \
  && curl -fsSL https://deb.nodesource.com/setup_22.x | bash - \
  && apt-get install -y --no-install-recommends nodejs \
  # Install GitHub CLI
@@ -25,9 +26,11 @@ RUN cd /app && npm install --production
 
 # Create unprivileged user for command execution
 RUN useradd -m -s /bin/bash executor \
- && chmod 700 /app
+ && chmod 700 /app \
+ && mkdir -p /workspace \
+ && chown executor:executor /workspace
 
-WORKDIR /home/executor
+WORKDIR /workspace
 
 # Copy & enable entrypoint
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
