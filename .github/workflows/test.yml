@@ -1,0 +1,44 @@
+name: Test
+
+on:
+    push:
+        branches:
+            - "**"
+
+jobs:
+    test-ubuntu:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
+
+            - name: Build sandbox image
+              run: docker build -t sandbox-ubuntu:test ubuntu/
+
+            - name: Start sandbox container
+              run: |
+                  docker run -d --name sandbox \
+                    -p 127.0.0.1:3005:3005 \
+                    sandbox-ubuntu:test
+                  # Wait for health
+                  for i in $(seq 1 30); do
+                    if curl -sf http://localhost:3005/health; then
+                      echo ""
+                      echo "Sandbox is healthy"
+                      break
+                    fi
+                    echo "Waiting for sandbox... ($i/30)"
+                    sleep 2
+                    if [ "$i" -eq 30 ]; then
+                      echo "Sandbox failed to start"
+                      docker logs sandbox
+                      exit 1
+                    fi
+                  done
+
+            - name: Run conformance tests
+              run: bash tests/conformance.sh http://localhost:3005
+
+            - name: Sandbox logs (on failure)
+              if: failure()
+              run: docker logs sandbox

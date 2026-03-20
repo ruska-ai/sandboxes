@@ -7,10 +7,60 @@ permissions:
 on:
     push:
         tags:
-            - "ubuntu-*"
+            - "sandbox-*"
 
 jobs:
+    test:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
+
+            - name: Parse tag
+              id: parse
+              run: |
+                  # Expected tag format: sandbox-<type>-<version>
+                  # e.g. sandbox-ubuntu-0.1.0
+                  FULL_TAG=${GITHUB_REF#refs/tags/sandbox-}
+                  SANDBOX=${FULL_TAG%%-*}
+                  VERSION=${FULL_TAG#*-}
+                  echo "sandbox=$SANDBOX" >> "$GITHUB_OUTPUT"
+                  echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+                  echo "Sandbox: $SANDBOX, Version: $VERSION"
+
+            - name: Build sandbox image
+              run: docker build -t sandbox-test:latest ${{ steps.parse.outputs.sandbox }}/
+
+            - name: Start sandbox container
+              run: |
+                  docker run -d --name sandbox \
+                    -p 127.0.0.1:3005:3005 \
+                    sandbox-test:latest
+                  # Wait for health
+                  for i in $(seq 1 30); do
+                    if curl -sf http://localhost:3005/health; then
+                      echo ""
+                      echo "Sandbox is healthy"
+                      break
+                    fi
+                    echo "Waiting for sandbox... ($i/30)"
+                    sleep 2
+                    if [ "$i" -eq 30 ]; then
+                      echo "Sandbox failed to start"
+                      docker logs sandbox
+                      exit 1
+                    fi
+                  done
+
+            - name: Run conformance tests
+              run: bash tests/conformance.sh http://localhost:3005
+
+            - name: Sandbox logs (on failure)
+              if: failure()
+              run: docker logs sandbox
+
     build:
+        needs: test
         runs-on: ubuntu-latest
         environment: Dev
         permissions:
@@ -24,10 +74,10 @@ jobs:
               id: parse
               run: |
                   # Expected tag format: sandbox-<type>-<version>
-                  # e.g. sandbox-ubuntu-v1.0.0
-                  TAG=${GITHUB_REF#refs/tags/sandbox-}
-                  SANDBOX=${TAG%-*}
-                  VERSION=${TAG##*-}
+                  # e.g. sandbox-ubuntu-0.1.0
+                  FULL_TAG=${GITHUB_REF#refs/tags/sandbox-}
+                  SANDBOX=${FULL_TAG%%-*}
+                  VERSION=${FULL_TAG#*-}
                   echo "sandbox=$SANDBOX" >> "$GITHUB_OUTPUT"
                   echo "version=$VERSION" >> "$GITHUB_OUTPUT"
                   echo "Sandbox: $SANDBOX, Version: $VERSION"
@@ -51,3 +101,11 @@ jobs:
                   docker build -t $IMAGE -t $LATEST ${{ steps.parse.outputs.sandbox }}/
                   docker push $IMAGE
                   docker push $LATEST
+
+            - name: Report image sizes
+              run: |
+                  echo "## Docker Image Sizes" >> $GITHUB_STEP_SUMMARY
+                  echo "" >> $GITHUB_STEP_SUMMARY
+                  echo "| Image | Size |" >> $GITHUB_STEP_SUMMARY
+                  echo "|-------|------|" >> $GITHUB_STEP_SUMMARY
+                  docker images ghcr.io/ruska-ai/sandbox --format "| ${{ steps.parse.outputs.sandbox }} | {{.Size}} |" | head -1 >> $GITHUB_STEP_SUMMARY
