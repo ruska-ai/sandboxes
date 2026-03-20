@@ -45,17 +45,21 @@ function requestLogger(req, res, next) {
   next();
 }
 
-// Factory for the exec_command tool handler
-function execCommandHandler({ cmd }) {
-  log("info", "exec_command called", { cmd });
+// Max timeout cap (120 seconds)
+const MAX_TIMEOUT_MS = 120000;
+
+// Factory for the execute tool handler
+function executeHandler({ cmd, timeout }) {
+  const timeoutMs = Math.min((timeout || 120) * 1000, MAX_TIMEOUT_MS);
+  log("info", "execute called", { cmd, timeoutMs });
   return new Promise((resolve) => {
-    exec(cmd, { timeout: 120000, maxBuffer: 1024 * 1024 * 10, cwd: "/home/executor", uid: EXEC_UID, gid: EXEC_GID, env: { HOME: "/home/executor", PATH: "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin", TERM: "xterm" } }, (error, stdout, stderr) => {
+    exec(cmd, { timeout: timeoutMs, maxBuffer: 1024 * 1024 * 10, cwd: "/home/executor", uid: EXEC_UID, gid: EXEC_GID, env: { HOME: "/home/executor", PATH: "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin", TERM: "xterm" } }, (error, stdout, stderr) => {
       const output = [];
       if (stdout) output.push(`stdout:\n${stdout}`);
       if (stderr) output.push(`stderr:\n${stderr}`);
       if (error && !stderr) output.push(`error: ${error.message}`);
       if (error) output.push(`exit_code: ${error.code ?? 1}`);
-      log(error ? "error" : "info", "exec_command result", {
+      log(error ? "error" : "info", "execute result", {
         cmd,
         exitCode: error?.code ?? 0,
         stdoutLen: stdout?.length || 0,
@@ -68,10 +72,15 @@ function execCommandHandler({ cmd }) {
   });
 }
 
-const TOOL_SCHEMA = { cmd: z.string().describe("The shell command to execute") };
+const EXECUTE_SCHEMA = {
+  cmd: z.string().describe("The shell command to execute"),
+  timeout: z.number().optional().describe("Timeout in seconds (default 120, max 120)"),
+};
 
 function registerTools(server) {
-  server.tool("exec_command", "Execute a shell command and return stdout/stderr", TOOL_SCHEMA, execCommandHandler);
+  server.tool("execute", "Execute a shell command and return stdout/stderr", EXECUTE_SCHEMA, executeHandler);
+  // Backward-compat alias — prevents breakage between Phase 4 and Phase 5 deploys
+  server.tool("exec_command", "Execute a shell command (alias for execute)", EXECUTE_SCHEMA, executeHandler);
 }
 
 // Create top-level server (unused directly but kept for reference)
