@@ -10,6 +10,15 @@ const EXEC_UID = parseInt(execSync("id -u executor").toString().trim(), 10);
 const EXEC_GID = parseInt(execSync("id -g executor").toString().trim(), 10);
 
 const API_KEY = process.env.API_KEY || "";
+const SANDBOX_ID = crypto.randomUUID();
+
+// Helper: build tool response with structured _meta
+function makeResult(text, exitCode) {
+  return {
+    content: [{ type: "text", text }],
+    _meta: { exit_code: exitCode, sandbox_id: SANDBOX_ID },
+  };
+}
 
 function log(level, msg, meta = {}) {
   const entry = {
@@ -59,15 +68,14 @@ function executeHandler({ cmd, timeout }) {
       if (stderr) output.push(`stderr:\n${stderr}`);
       if (error && !stderr) output.push(`error: ${error.message}`);
       if (error) output.push(`exit_code: ${error.code ?? 1}`);
+      const exitCode = error ? (error.code ?? 1) : 0;
       log(error ? "error" : "info", "execute result", {
         cmd,
-        exitCode: error?.code ?? 0,
+        exitCode,
         stdoutLen: stdout?.length || 0,
         stderrLen: stderr?.length || 0,
       });
-      resolve({
-        content: [{ type: "text", text: output.join("\n") || "(no output)" }],
-      });
+      resolve(makeResult(output.join("\n") || "(no output)", exitCode));
     });
   });
 }
@@ -164,7 +172,7 @@ app.delete("/mcp", async (req, res) => {
 });
 
 app.get("/health", (req, res) => {
-  res.json({ status: "ok", sessions: transports.size });
+  res.json({ status: "ok", sessions: transports.size, sandbox_id: SANDBOX_ID });
 });
 
 const PORT = process.env.PORT || 3005;
