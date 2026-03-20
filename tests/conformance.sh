@@ -138,7 +138,7 @@ else
   fail "read: returns file content" "$READ_OK"
 fi
 
-if echo "$READ_OK" | jq -r '.result.content[0].text' | grep -qE '^\s+1\t'; then
+if echo "$READ_OK" | jq -r '.result.content[0].text' | grep -qP '^\s+1\t'; then
   pass "read: cat -n format with line numbers"
 else
   fail "read: cat -n format with line numbers" "$(echo "$READ_OK" | jq -r '.result.content[0].text' | head -1)"
