@@ -10,6 +10,7 @@ TOOLS=(
   "jq|jq|Command-line JSON processor"
   "telnet|telnet|Telnet client"
   "unzip|unzip|ZIP archive extractor"
+  "git|git|Distributed version control system"
 )
 
 selected_packages=()

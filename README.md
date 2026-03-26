@@ -62,6 +62,7 @@ Run it (recommended on first login) and choose optional packages to install. Cur
 - `nvm` with default Node.js set to `22`
 - `@openai/codex` (global npm install)
 - `agent-browser` (global npm install) plus `agent-browser install --with-deps`
+- `claude-code` (`curl -fsSL https://claude.ai/install.sh | bash`)
 - generate SSH key at `~/.ssh/id_ed25519`
 
 You can also verify host Docker access from inside the container:
