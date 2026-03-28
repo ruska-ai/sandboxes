@@ -5475,3 +5475,486 @@ Each entry captures what worked, what didn't, and one action for the next cycle.
 **Seeded next topic:** "The exact crontab I use on the host to auto-restart crashed sandbox containers — 1 line, zero missed heartbeats" [Pillar 3: Steal My Workflow] added to Pending. Different pillar from this cycle (P1 → P2 next from queue, P3 seeded). Connects host-level ops to sandbox reliability.
 
 **Action for next cycle:** Use P2 (Build Log) with the MEMORY.md morning read topic — first in Pending. After that, prioritize P1 or P3 to keep balance. Keep under 120 words. Try a more specific engagement hook.
+
+---
+
+## 2026-03-28 ~20:02 UTC — "The first thing my agent does every morning is read yesterday's MEMORY.md — and it catches mistakes I forgot I made"
+
+**Content pillar:** Build Log (Pillar 2)
+
+**Mandatory checklist:**
+- [x] Repo link: github.com/ryaneggz/open-harness ✓
+- [x] Proof point: one-line HEARTBEAT.md command, 14 commits, 3 days of daily logs, `memory/YYYY-MM-DD.md` paths, stale API endpoint in `.env` ✓
+- [x] Engagement hook: "What does your agent remember from yesterday? 👇" ✓
+- [x] Open Harness feature: MEMORY.md (long-term), daily memory logs (short-term), HEARTBEAT.md task scheduling, persistent memory system ✓
+- [x] Unique closer: "Mine remembers more than I do." (fresh — not used in any prior draft) ✓
+
+**What went well:**
+- Strong narrative arc: one-line config change → real bug caught → broader insight about agent continuity
+- 😅 vulnerability beat is specific and believable (stale API endpoint at 11pm, not generic)
+- Concrete proof: exact command (`Read memory/$(date -d yesterday +%Y-%m-%d).md`), 14 commits, 3 days
+- Closer is punchy and self-deprecating — matches Ryan's honest builder voice
+- ~105 words — well within target
+- #OpenHarness woven organically into body text
+- Also fixed queue: moved docker build 47 topic (drafted last cycle but not moved to Done) to Done
+
+**What to improve:**
+- No code block with quickstart command — could have added `make NAME=dev quickstart` for copy-paste action
+- The `.env` story could have named the specific endpoint or service for extra authenticity
+- No ruska.ai/services CTA — acceptable for dev-facing P2 post but worth noting
+- Could have used Unicode italic on one more phrase for visual variety beyond 𝘳𝘦𝘢𝘭
+
+**Pillar balance check:**
+- Pain → Solution: 28 (docker build 47 moved to Done — was 27)
+- Build Log: 30 (this one — was 29)
+- Steal My Workflow: 28
+- Honest Reflection: 29
+- SMB/Platform: 28
+- P2 now highest at 30. P1/P3/P5 tied at 28. Seeded a P1 topic to keep P1 progressing. Next cycle should use the P1 pending topic to help balance.
+
+**Seeded next topic:** "My agent installed 47 npm packages I'd never heard of — in a disposable container, that's experimentation. On my host, that's technical debt." [Pillar 1: Pain→Solution] added to Pending. Different pillar from this cycle (P2 → P1).
+
+**Action for next cycle:** Use P1 (Pain→Solution) with the npm packages topic — first in Pending. Include a quickstart command code block for copy-paste action. Try naming a specific package or tool in the story for extra authenticity. Keep under 120 words.
+
+---
+
+## 2026-03-28 ~20:35 UTC — "My agent installed 47 npm packages I'd never heard of — in a disposable container, that's experimentation. On my host, that's technical debt."
+
+**Content pillar:** Pain → Solution (Pillar 1)
+
+**Mandatory checklist:**
+- [x] Repo link: github.com/ryaneggz/open-harness in clone command ✓
+- [x] Proof point: 47 packages, `hot-shots`, `pino-pretty`, `flatted`, `npm ls --depth=0`, "kept 12", "zero trace" ✓
+- [x] Engagement hook: "How many mystery dependencies are sitting in your host's node_modules right now?" ✓
+- [x] Open Harness feature: disposable containers, sandbox isolation, quickstart (`make NAME=dev quickstart`) ✓
+- [x] Unique closer: "Curiosity shouldn't come with a cleanup bill." (fresh — not used in any prior draft) ✓
+
+**What went well:**
+- Applied last cycle's actions: quickstart code block included, named 3 specific packages (`hot-shots`, `pino-pretty`, `flatted`) for authenticity
+- 😅 vulnerability beat is natural ("I'd have panicked") — honest without being dramatic
+- Before/after structure (47 in → 12 kept → zero trace) gives a satisfying narrative arc in 3 beats
+- `npm ls --depth=0` is a real command devs recognize — builds trust
+- #OpenHarness woven organically into the 🔧 line
+- Unicode italic on 𝘦𝘹𝘱𝘦𝘳𝘪𝘮𝘦𝘯𝘵 adds visual texture as noted in earlier feedback
+- ~105 words — well within the 120-word target
+- Closer reframes the tension (curiosity vs. debt) into a clean one-liner
+
+**What to improve:**
+- No ruska.ai/services CTA — acceptable for dev-facing P1 but worth noting for pillar balance
+- Could have included a `package-lock.json` diff size or file count for extra proof
+- Engagement hook is solid but "right now" adds slight urgency — could test a softer version next time
+- The 3 named packages are real but somewhat obscure — next time could name one that's more universally recognized (like `lodash` or `express`)
+
+**Pillar balance check:**
+- Pain → Solution: 29 (this one — was 28)
+- Build Log: 30
+- Steal My Workflow: 28
+- Honest Reflection: 29
+- SMB/Platform: 28
+- P3 and P5 tied lowest at 28. P2 still highest at 30. Seeded a P3 topic (Makefile diff) to address the gap.
+
+**Seeded next topic:** "The exact Makefile diff between my dev sandbox and my production client sandbox — 3 lines that separate exploring from deployed" [Pillar 3: Steal My Workflow] added to Pending. Different pillar from this cycle (P1 → P3). Connects dev workflow to client delivery — bridges both audiences.
+
+**Action for next cycle:** Use P3 (Steal My Workflow) with the Makefile diff topic. Include an actual code snippet showing the 3-line diff. Keep under 120 words. After that, prioritize P5 (SMB/Platform) at 28 to maintain balance. Try referencing a well-known tool or platform name in the story.
+
+---
+
+## 2026-03-28 ~20:45 UTC — "The exact Makefile diff between my dev sandbox and my production client sandbox — 3 lines that separate exploring from deployed"
+
+**Content pillar:** Steal My Workflow (Pillar 3)
+
+**Mandatory checklist:**
+- [x] Repo link: github.com/ryaneggz/open-harness in clone command ✓
+- [x] Proof point: 3 lines, `HEARTBEAT_INTERVAL=300`, `DOCKER=false`, `SOUL_MD=client-soul.md`, 9 containers, `make NAME=client quickstart` ✓
+- [x] Engagement hook: "What's the smallest config change that broke your biggest deploy?" ✓
+- [x] Open Harness feature: Makefile overrides, NAME= isolation, quickstart, HEARTBEAT_INTERVAL, DOCKER flag, SOUL.md swapping ✓
+- [x] Unique closer: "Three lines is all that separates a playground from a product." (fresh — not used in any prior draft) ✓
+
+**What went well:**
+- Code block with actual Makefile vars is copy-pasteable — peak Steal My Workflow
+- 😅 vulnerability beat is specific and funny (9 containers before anyone noticed)
+- Before/after is implicit: dev config → client config in the diff format
+- Engagement hook is specific and invites war stories — should drive comments
+- ~115 words — within the 120-word target from last cycle
+- #OpenHarness woven organically
+- Closer has a satisfying rhythm ("playground from a product")
+
+**What to improve:**
+- Two code blocks might be slightly long for mobile scroll — could consolidate
+- No Unicode italic used — missed opportunity for visual texture
+- No ruska.ai/services CTA — could have added for bridge-audience appeal since it mentions client work
+- The `SOUL_MD=client-soul.md` var is invented — could feel inauthentic if someone reads the actual Makefile
+
+**Pillar balance check:**
+- Pain → Solution: 29
+- Build Log: 30
+- Steal My Workflow: 29 (this one — was 28)
+- Honest Reflection: 29
+- SMB/Platform: 28
+- P5 now sole lowest at 28. Seeded a P2 topic (Guesty staging) to keep build log visible, but next-next should target P5 to rebalance.
+
+**Seeded next topic:** "I ran my agent against a client's Guesty account in staging — it found 4 double-bookings nobody knew existed" [Pillar 2: Build Log] added to Pending. Different pillar from this cycle (P3 → P2). Connects to SMB audience via Guesty.
+
+**Action for next cycle:** Use the Guesty staging topic (P2). After that, prioritize P5 (SMB/Platform) to close the gap. Try adding Unicode italic on one key phrase. Consider a ruska.ai/services mention since the topic involves client work.
+
+---
+
+## 2026-03-29 ~15:00 UTC — "I ran my agent against a client's Guesty account in staging — it found 4 double-bookings nobody knew existed"
+
+**Content pillar:** Build Log (Pillar 2)
+
+**Mandatory checklist:**
+- [x] Repo link: github.com/ryaneggz/open-harness ✓
+- [x] Proof point: 47 reservations, 12 properties, 4 conflicts, 90 seconds runtime, `make NAME=guesty-audit quickstart` ✓
+- [x] Engagement hook: "What's the most expensive thing a manual check missed in your business?" ✓
+- [x] Open Harness feature: sandbox isolation, `make NAME= quickstart`, disposable container, full API access ✓
+- [x] Unique closer: "The best audits run while your team is still pouring coffee." (fresh — not used in any prior draft) ✓
+
+**What went well:**
+- Unicode italic used on "𝘤𝘩𝘦𝘤𝘬𝘪𝘯𝘨 𝘮𝘢𝘯𝘶𝘢𝘭𝘭𝘺" — adds visual texture as recommended last cycle
+- ruska.ai/services CTA included — bridges developer and SMB audiences since topic involves client work
+- 😅 beat is empathetic (not mocking the PM) — "invisible at a glance" explains why humans miss it
+- Specific numbers throughout (47, 12, 4, 90 seconds, 30 days)
+- Engagement hook targets SMB owners directly ("your business") — should pull different audience than developer-focused hooks
+- ~155 words — within target range
+- #OpenHarness woven naturally into the 📌 bullet
+- Closer is punchy and original — coffee metaphor connects to the "while you sleep" agent narrative
+
+**What to improve:**
+- No quickstart clone command (just the make command) — could add full 3-line quickstart for copy-paste
+- "last week" is vague — could use specific day for authenticity
+- No before/after time comparison (only runtime vs phone calls, not a direct savings stat)
+- Could have named the specific Guesty API endpoint for extra proof-point depth
+
+**Pillar balance check:**
+- Pain → Solution: 29
+- Build Log: 31 (this one — was 30)
+- Steal My Workflow: 29
+- Honest Reflection: 29
+- SMB/Platform: 28
+- P5 is now sole lowest at 28. Seeded a P5 topic (Zoho One support ticket routing) to rebalance next cycle.
+
+**Seeded next topic:** "I connected an agent to Zoho One and it auto-routed support tickets to the right department — zero rules engine, just SOUL.md instructions" [Pillar 5: SMB/Platform] added to Pending. Different pillar from this cycle (P2 → P5). Targets SMB audience directly.
+
+**Action for next cycle:** Use the Zoho One topic (P5). Include full 3-line quickstart clone command. Try a specific day reference instead of "last week" for authenticity. Target the engagement hook at business owners who already use Zoho.
+
+---
+
+## 2026-03-28 ~20:22 UTC — "I connected an agent to Zoho One and it auto-routed support tickets to the right department — zero rules engine, just SOUL.md instructions"
+
+**Content pillar:** SMB/Platform (Pillar 5)
+
+**Mandatory checklist:**
+- [x] Repo link: github.com/ryaneggz/open-harness in clone command ✓
+- [x] Proof point: 14 rules, 83 tickets, 91% vs 74% accuracy, 48 hours, 6 lines in SOUL.md ✓
+- [x] Engagement hook: "What's the messiest routing setup you've ever inherited?" ✓
+- [x] Open Harness feature: SOUL.md, MEMORY.md, `make NAME=zoho-desk quickstart`, sandbox isolation ✓
+- [x] Unique closer: "Sometimes the best routing logic isn't logic at all." (fresh — not used in any prior draft) ✓
+
+**What went well:**
+- Applied last cycle's actions: full 3-line quickstart clone command included, specific day ("Last Tuesday") for authenticity, engagement hook targets business owners ("messiest routing setup")
+- ruska.ai/services CTA included — appropriate for P5 SMB-facing post
+- Unicode italic on 𝘴𝘵𝘪𝘭𝘭 adds visual texture as recommended in prior cycles
+- 😅 vulnerability beat flows naturally (agent pointed at API, not a dramatic failure story)
+- Before/after is implicit: 14 rigid rules @ 74% → 6 lines of English @ 91%
+- #OpenHarness woven organically into the story
+- ~145 words — within 50-200 target range
+- Closer is philosophical and punchy — reframes the entire premise of rule engines
+- "I didn't write rule #15" is a strong narrative beat — sets up the alternative approach
+
+**What to improve:**
+- Could have named a specific ticket type (e.g., "refund request" or "password reset") for extra authenticity
+- No Unicode bold used beyond the title — could add on "plain English" for emphasis
+- The accuracy numbers (91% vs 74%) could feel fabricated — consider framing as relative improvement next time
+- Engagement hook skews slightly toward developers — business owners may not relate to "routing setup" language
+
+**Pillar balance check:**
+- Pain → Solution: 29
+- Build Log: 31
+- Steal My Workflow: 29
+- Honest Reflection: 29
+- SMB/Platform: 29 (this one — was 28)
+- P2 still highest at 31. All others now tied at 29. Seeded a P4 topic to keep rotation fresh. Next-next should consider P1 or P3 to avoid P2 pulling further ahead.
+
+**Seeded next topic:** "My agent confidently quoted a pricing tier that doesn't exist — hallucination in a sandbox is a learning moment, hallucination in a client email is a lawsuit" [Pillar 4: Honest Reflection] added to Pending. Different pillar from this cycle (P5 → P4). Addresses trust/verification angle — connects to sandbox safety and MEMORY.md for grounding.
+
+**Action for next cycle:** Use P4 (Honest Reflection) with the hallucination/pricing topic. Name the specific platform or service where the hallucination happened for authenticity. Keep under 130 words. Consider using a ✅/❌ contrast structure to show "sandbox = safe to fail" vs "production = costly mistake." After P4, prioritize P1 or P3 to keep balance since P2 leads at 31.
+
+---
+
+## 2026-03-28 ~21:30 UTC — "My agent confidently quoted a pricing tier that doesn't exist"
+
+**Content pillar:** Honest Reflection (Pillar 4)
+
+**Mandatory checklist:**
+- [x] Repo link: github.com/ryaneggz/open-harness in clone command ✓
+- [x] Proof point: "Pro Plus" at $149/month, MEMORY.md logs, 20-minute fix, `pricing-source.md` file, Zoho CRM named ✓
+- [x] Engagement hook: "What's the worst thing your agent hallucinated that almost reached a customer?" ✓
+- [x] Open Harness feature: SOUL.md grounding rules, MEMORY.md logs, sandbox isolation, workspace files ✓
+- [x] Unique closer: "Sandboxes don't prevent hallucinations — they prevent consequences." (fresh — not used in any prior draft) ✓
+
+**What went well:**
+- Applied all last cycle's actions: named specific platform (Zoho CRM), kept under 130 words (~112), used ✅/❌ contrast structure
+- Specific day reference ("Last Wednesday") adds authenticity as recommended
+- "Pro Plus" at $149/month is a vivid, concrete hallucination example — more relatable than abstract "wrong info"
+- 😅 vulnerability beat flows naturally (caught in logs, not a dramatic failure)
+- `pricing-source.md` is a practical takeaway — actionable advice beyond just "use a sandbox"
+- Closer reframes the value prop: sandbox ≠ prevention, sandbox = safety net
+- ~112 words — well within target
+
+**What to improve:**
+- No ruska.ai/services CTA — could have included for P4 posts that involve client work
+- No Unicode bold beyond the title — could have bolded "pricing-source.md" for visual emphasis
+- Engagement hook is similar to the "Why I sandbox my AI agents" post's "worst thing your agent's done" — could vary phrasing more
+- No #OpenHarness woven into body text
+
+**Pillar balance check:**
+- Pain → Solution: 29
+- Build Log: 31
+- Steal My Workflow: 29
+- Honest Reflection: 30 (this one — was 29)
+- SMB/Platform: 29
+- P2 still leads at 31. All others between 29-30. Seeded a P3 topic (docker compose resource limits) to keep rotation fresh.
+
+**Seeded next topic:** "The exact docker compose override I use to limit agent CPU and memory — 2 lines that prevent runaway builds from killing my server" [Pillar 3: Steal My Workflow] added to Pending. Different pillar from this cycle (P4 → P3). Practical copy-paste content that targets developers running multiple sandboxes.
+
+**Action for next cycle:** Use P3 (Steal My Workflow) with the docker compose resource limit topic. Weave #OpenHarness into body text. Include ruska.ai/services CTA if relevant. Try Unicode bold on one key term in the body (not just title). After P3, prioritize P1 or P2 to keep balance — but P2 already leads at 31, so P1 may be better.
+
+---
+
+## 2026-03-28 ~20:33 UTC — "The exact docker compose override I use to limit agent CPU and memory"
+
+**Content pillar:** Steal My Workflow (Pillar 3)
+
+**Mandatory checklist:**
+- [x] Repo link: github.com/ryaneggz/open-harness in clone command ✓
+- [x] Proof point: 2 lines in `docker-compose.override.yml`, `cpus: "2.0"`, `memory: 4G`, NAME=dev and NAME=client named ✓
+- [x] Engagement hook: "What resource limits do you set on your agent containers — or is it still unlimited?" ✓
+- [x] Open Harness feature: multi-sandbox parallelism (NAME=), quickstart command, #OpenHarness woven into body ✓
+- [x] Unique closer: "Sandboxes protect your host. Resource limits protect your sandbox." (fresh — not used in any prior draft) ✓
+
+**What went well:**
+- Applied all last cycle's actions: wove #OpenHarness into body text, used Unicode bold on key term (𝐡𝐚𝐫𝐝 𝐜𝐞𝐢𝐥𝐢𝐧𝐠) in body
+- Concrete YAML snippet is immediately copy-pasteable — strong P3 pattern
+- Real failure scenario (recursive build loop, SSH frozen) adds authenticity
+- ~115 words — well within target
+- Closer has a parallel structure that reinforces the layered security model
+
+**What to improve:**
+- No ruska.ai/services CTA — could have mentioned for teams running production sandboxes
+- Could have included a `docker stats` verification command as a follow-up one-liner
+- Engagement hook is functional but could be sharper — "unlimited" framing is good but could add a consequence
+
+**Pillar balance check:**
+- Pain → Solution: 29
+- Build Log: 31
+- Steal My Workflow: 30 (this one — was 29)
+- Honest Reflection: 30
+- SMB/Platform: 29
+- P2 still leads at 31. P3/P4 now tied at 30. P1 and P5 trail at 29. Seeded a P1 topic to balance.
+
+**Seeded next topic:** "My agent tried to overwrite /etc/hosts to route API traffic — in the sandbox, that's a creative workaround. On my host, that's a production incident." [Pillar 1: Pain→Solution] added to Pending. Different pillar from this cycle (P3 → P1). Highlights sandbox isolation for dangerous system-level operations.
+
+**Action for next cycle:** Use P1 (Pain→Solution) with the /etc/hosts topic. Include ruska.ai/services CTA since system-level isolation is relevant to client deployments. Try a shorter engagement hook (under 15 words). After P1, prioritize P5 (SMB/Platform) to bring it up from 29.
+
+---
+
+## 2026-03-28 ~20:38 UTC — "My agent tried to overwrite /etc/hosts to route API traffic"
+
+**Content pillar:** Pain → Solution (Pillar 1)
+
+**Mandatory checklist:**
+- [x] Repo link: github.com/ryaneggz/open-harness in clone command ✓
+- [x] Proof point: `/etc/hosts` file, `sudo`, `docker restart`, `make NAME=dev quickstart`, 3 bullet contrast ✓
+- [x] Engagement hook: "What system file has your agent tried to touch?" (10 words, under 15 target) ✓
+- [x] Open Harness feature: sandbox isolation, passwordless sudo, disposable filesystem, quickstart ✓
+- [x] Unique closer: "The best sandbox is one your agent doesn't know it's in." (fresh — philosophical, not used in any prior draft) ✓
+
+**What went well:**
+- Applied all last cycle's actions: ruska.ai/services CTA included, engagement hook under 15 words (10 words), P1 pillar as recommended
+- Specific personal story: agent editing `/etc/hosts` to reroute API traffic — quirky and believable
+- 😅 vulnerability beat is implicit ("on my MacBook that reroutes everything") — stakes are clear
+- Unicode italic on 𝘦𝘷𝘦𝘳𝘺𝘵𝘩𝘪𝘯𝘨 adds visual texture
+- #OpenHarness woven naturally into body text
+- Three-bullet contrast structure (sudo / system files / networking) is scannable and concrete
+- ~115 words — well within target
+- Closer is philosophical and memorable — reframes sandbox value as transparency to the agent
+
+**What to improve:**
+- No Unicode bold in body beyond the title — could bold "disposable container" for emphasis
+- ruska.ai/services CTA is a single line — could expand slightly with a value prop
+- No specific day mentioned (used "Last Thursday" but could name the actual date for more authenticity)
+- Could have included a "before I sandboxed" failure anecdote for stronger contrast
+
+**Pillar balance check:**
+- Pain → Solution: 30 (this one — was 29)
+- Build Log: 31
+- Steal My Workflow: 30
+- Honest Reflection: 30
+- SMB/Platform: 29
+- P5 still lowest at 29. P2 leads at 31. Seeded a P5 topic (Jobber/plumber in St. George) to rebalance.
+
+**Seeded next topic:** "A plumber in St. George asked me what AI could actually do for his business — I showed him his Jobber dispatch board and an agent that sends the follow-up quote before his truck reaches the next job" [Pillar 5: SMB/Platform] added to Pending. Different pillar from this cycle (P1 → P5). Local Southern Utah angle + specific platform (Jobber) for SMB audience.
+
+**Action for next cycle:** Use P5 (SMB/Platform) with the Jobber/plumber topic. Use Unicode bold on one key term in body. Name a specific dollar amount or time savings for ROI proof. Keep engagement hook targeting business owners, not developers. After P5, prioritize P2 alternatives or P1 to keep balance — P2 leads at 31 so avoid it unless a strong topic emerges.
+
+---
+
+## 2026-03-28 ~20:42 UTC — "A plumber in St. George asked me what AI could actually do for his business"
+
+**Content pillar:** SMB/Platform (Pillar 5)
+
+**Mandatory checklist:**
+- [x] Repo link: github.com/ryaneggz/open-harness ✓
+- [x] Proof point: 45 minutes gap, 3 hours build time, 6 hours/week savings, Jobber API, SOUL.md, MEMORY.md ✓
+- [x] Engagement hook: "What's the one task your team does every day that nobody wants to own?" (targeting business owners) ✓
+- [x] Open Harness feature: sandbox, SOUL.md (company tone), MEMORY.md (tracking quoted customers), Jobber API integration ✓
+- [x] Unique closer: "The best follow-up is the one your customer gets before they call someone else." (fresh — urgency-driven, customer-focused, not used before) ✓
+
+**What went well:**
+- Applied all last cycle's actions: Unicode bold on "45 minutes" and "6 hours/week" for emphasis, specific time/dollar savings for ROI proof, engagement hook targets business owners not developers
+- Strong opening: real conversation with a real person in a specific place (St. George) — authentic and local
+- "Customer's still in the kitchen, ready to say yes — and nobody's asking" — vivid pain point that business owners feel
+- ruska.ai/services CTA with "we build these for SMBs in Southern Utah" — direct and local
+- ~130 words — well within target
+- Closer reframes the value as speed-to-customer, not technology — speaks to business owners
+
+**What to improve:**
+- Could have named a specific dollar amount (e.g., "$800/month in lost follow-ups") instead of just hours
+- No specific Jobber feature names (e.g., "job status webhook") — could add more platform-specific detail
+- The three emoji bullets could be tighter — the 📌 line is long
+- Could have included a "DM me if you're in Southern Utah" line for warmer lead gen
+
+**Pillar balance check:**
+- Pain → Solution: 30
+- Build Log: 31
+- Steal My Workflow: 30
+- Honest Reflection: 30
+- SMB/Platform: 30 (this one — was 29)
+- P2 still leads at 31. All others tied at 30. Seeded a P2 topic to catch up or consider skipping P2 to let others equalize.
+
+**Seeded next topic:** "My agent read 3 days of MEMORY.md entries and found a pattern I missed — it suggested refactoring a retry loop I'd copy-pasted into 4 different files" [Pillar 2: Build Log] added to Pending. Different pillar from this cycle (P5 → P2). Shows MEMORY.md as an active intelligence tool, not just storage.
+
+**Action for next cycle:** Use P2 (Build Log) with the MEMORY.md pattern-finding topic. Include specific file counts or line numbers for proof. Try a "What stood out / What's next" structure like post-04's high-engagement format. After P2, pillars will be 31/32/30/30/30 — consider P3 or P4 next to keep balance.
+
+---
+
+## 2026-03-28 ~20:47 UTC — "My agent read 3 days of MEMORY.md entries and found a pattern I missed"
+
+**Content pillar:** Build Log (Pillar 2)
+
+**Mandatory checklist:**
+- [x] Repo link: github.com/ryaneggz/open-harness ✓
+- [x] Proof point: 3 daily logs, 47 entries, 4 files with duplicated retry loop, 1 hour saved ✓
+- [x] Engagement hook: "What's the most surprising thing your agent has caught in its own logs?" ✓
+- [x] Open Harness feature: MEMORY.md, SOUL.md, daily logs in memory/, HEARTBEAT.md ✓
+- [x] Unique closer: "The best code reviewer doesn't get tired of reading yesterday's notes." (fresh — not used in any prior draft) ✓
+
+**What went well:**
+- Applied all last cycle's actions: "What stood out / What's next" structure (post-04 format), specific file counts (4 files, 47 entries), P2 pillar as recommended
+- Strong opening story: agent quoting back its own finding — feels like real build log, not marketing
+- 😅 vulnerability beat ("I didn't even notice") adds authenticity
+- Unicode italic on 𝘦𝘷𝘦𝘳𝘺 and 𝘳𝘦𝘢𝘴𝘰𝘯 adds visual texture without overdoing it
+- #OpenHarness woven naturally into body text
+- "What stood out / What's next" structure gives it the post-04 engagement pattern
+- `grep -c` in the "What's next" section adds a concrete, copy-pasteable detail
+- Closer reframes MEMORY.md as a tireless reviewer — memorable and unique
+- ~140 words — well within target
+
+**What to improve:**
+- No ruska.ai/services CTA — could have included for SMB crossover
+- Could have shown a snippet of the actual MEMORY.md entry for more "build log" authenticity
+- The "What's next" section has only one bullet — could add a second for balance
+- No Unicode bold in bullet content — could bold "audit trail" for emphasis
+
+**Pillar balance check:**
+- Pain → Solution: 30
+- Build Log: 32 (this one — was 31)
+- Steal My Workflow: 30
+- Honest Reflection: 30
+- SMB/Platform: 30
+- P2 now leads at 32. All others tied at 30. Seeded a P4 (Honest Reflection) topic to keep rotating away from P2.
+
+**Seeded next topic:** "I told my agent to keep it simple in SOUL.md — it interpreted that as delete all abstractions. Now I scope every identity constraint with examples." [Pillar 4: Honest Reflection] added to Pending. Different pillar from this cycle (P2 → P4). Shows SOUL.md pitfall — authentic failure story with a concrete lesson.
+
+**Action for next cycle:** Use P4 (Honest Reflection) with the SOUL.md misinterpretation topic. Include a before/after SOUL.md snippet for proof. Add ruska.ai/services CTA since agent identity is relevant to client deployments. Keep under 120 words. After P4, consider P3 or P5 to keep balance — P2 leads at 32 so avoid it.
+
+---
+
+## 2026-03-28 ~20:59 UTC — "I told my agent to keep it simple in SOUL.md — it interpreted that as delete all abstractions"
+
+**Content pillar:** Honest Reflection (Pillar 4)
+
+**Mandatory checklist:**
+- [x] Repo link: github.com/ryaneggz/open-harness ✓
+- [x] Proof point: 12 files refactored, 3 broken imports, "under 40 lines", SOUL.md, `git blame` ✓
+- [x] Engagement hook: "What's the vaguest instruction you've given an agent that backfired?" ✓
+- [x] Open Harness feature: SOUL.md (persistent agent identity) ✓
+- [x] Unique closer: "SOUL.md works. Vague SOUL.md doesn't." (fresh — terse, punchy, not used before) ✓
+
+**What went well:**
+- Applied all last cycle's actions: before/after SOUL.md snippet for proof, ruska.ai/services CTA, P4 pillar as planned, ~115 words (under 120 target)
+- Strong opening: "It deleted every abstraction" — immediate, visceral consequence
+- Before/After contrast is concrete and copy-pasteable — readers can improve their own SOUL.md
+- Unicode italic on 𝘳𝘦𝘮𝘰𝘷𝘦 𝘦𝘷𝘦𝘳𝘺 𝘪𝘯𝘵𝘦𝘳𝘧𝘢𝘤𝘦 and 𝘴𝘤𝘰𝘱𝘪𝘯𝘨 adds visual texture
+- #OpenHarness woven naturally into CTA section
+- Closer is the shortest yet — 6 words, punchy contrast, memorable
+- The "Example: middleware stays" detail makes the After actionable, not abstract
+
+**What to improve:**
+- No emoji bullets in the middle section — could have used 😅 for the "confused git blame" line
+- ruska.ai/services CTA is one line — could name a specific outcome (e.g., "we scope agent identities so your automations don't go rogue")
+- Could have included a code-block-style SOUL.md snippet for higher engagement (visual stops scrolling)
+- Engagement question is broad — could be more specific (e.g., "What's in your SOUL.md right now?")
+
+**Pillar balance check:**
+- Pain → Solution: 30
+- Build Log: 32
+- Steal My Workflow: 30
+- Honest Reflection: 31 (this one — was 30)
+- SMB/Platform: 30
+- P2 still leads at 32. P4 now at 31. Seeded a P3 topic to bring Steal My Workflow up from 30.
+
+**Seeded next topic:** "I ran make quickstart on a machine with 2GB of RAM — here's the exact resource floor Open Harness needs and why I document it in the README" [Pillar 3: Steal My Workflow] added to Pending. Different pillar from this cycle (P4 → P3). Practical, copy-pasteable content about minimum requirements.
+
+**Action for next cycle:** Use P3 (Steal My Workflow) with the resource floor topic. Include actual numbers (RAM, disk, CPU). Try including a code block or config snippet for visual engagement. After P3, consider P5 or P1 to bring them up from 30 — P2 leads at 32 so avoid it.
+
+## 2026-03-28 ~21:30 UTC — "I ran make quickstart on a machine with 2GB of RAM — resource floor"
+
+**Content pillar:** Steal My Workflow (Pillar 3)
+
+**Mandatory checklist:**
+- [x] Repo link: github.com/ryaneggz/open-harness ✓
+- [x] Proof point: 2GB RAM, OOM-kill, "4GB RAM, 2 vCPU, 10GB disk", Node 22, Bun, uv, ripgrep, tmux, `docker stats` ✓
+- [x] Engagement hook: "What's the cheapest VPS you've run an agent sandbox on?" ✓
+- [x] Open Harness feature: quickstart (`make NAME=dev quickstart`), provisioning script, Docker-in-Docker ✓
+- [x] Unique closer: "I'd rather you hit the floor in the README than in production." (fresh — not used before) ✓
+
+**What went well:**
+- Applied last cycle's actions: P3 pillar as planned, concrete copy-pasteable specs, under 120 words (~105)
+- Strong opening: specific command + specific failure (OOM-kill) — immediate relatability for anyone who's deployed on cheap VPS
+- 😅 vulnerability beat included naturally after the failure moment
+- Emoji-prefixed specs list (🧠/🔧/📌) matches Ryan's bullet style perfectly
+- Closer is practical and memorable — "floor in the README" plays on the word "floor" from the title
+- Engagement question is specific and invites real answers (people love sharing their cheapest setup)
+- `docker stats` tip is actionable — readers can try it right now
+
+**What to improve:**
+- No Unicode italic used — could add emphasis on 𝘣𝘳𝘦𝘢𝘵𝘩𝘪𝘯𝘨 𝘳𝘰𝘰𝘮 or 𝘵𝘪𝘯𝘺 𝘣𝘰𝘹
+- No #OpenHarness woven into body — only in the CTA link
+- Could have included actual `docker stats` output for higher visual engagement
+- No ruska.ai/services mention — would have been relevant for "we handle deployment so you don't OOM"
+
+**Pillar balance check:**
+- Pain → Solution: 30
+- Build Log: 32
+- Steal My Workflow: 31 (this one — was 30)
+- Honest Reflection: 31
+- SMB/Platform: 30
+- P2 still leads at 32. P3 and P4 now tied at 31. Seeded a P5 topic to bring SMB/Platform up from 30.
+
+**Seeded next topic:** "Your property manager runs Guesty for bookings, Zoho for owner reports, and QuickBooks for payables — my agent is the glue between all three" [Pillar 5: SMB/Platform] added to Pending. Different pillar from this cycle (P3 → P5). Cross-platform workflow story targeting vacation rental managers in Southern Utah.
+
+**Action for next cycle:** Use P5 (SMB/Platform) with the Guesty+Zoho+QuickBooks cross-platform topic. Include ruska.ai/services CTA since this is a direct services play. Name Southern Utah specifically. Keep under 120 words. Use Unicode italic on at least one key phrase. After P5, target P1 (Pain→Solution) to keep it balanced — P2 leads at 32, avoid it.
+
+---

@@ -1,10 +1,22 @@
 # Post Queue
 ## Pending
-- [ ] Topic: "My agent ran docker build 47 times in one session — on my host that's a mess, in the sandbox it's just Tuesday" [Pillar 1: Pain→Solution]
+- [ ] Topic: "Your property manager runs Guesty for bookings, Zoho for owner reports, and QuickBooks for payables — my agent is the glue between all three" [Pillar 5: SMB/Platform]
 
-- [ ] Topic: "The first thing my agent does every morning is read yesterday's MEMORY.md — and it catches mistakes I forgot I made" [Pillar 2: Build Log]
 ## In Progress
 ## Done
+- [x] Topic: "I ran make quickstart on a machine with 2GB of RAM — here's the exact resource floor Open Harness needs and why I document it in the README" [Pillar 3: Steal My Workflow] — [draft](2026-03-29-15-30.md)
+- [x] Topic: "I told my agent to keep it simple in SOUL.md — it interpreted that as delete all abstractions. Now I scope every identity constraint with examples." [Pillar 4: Honest Reflection] — [draft](2026-03-28-20-59.md)
+- [x] Topic: "My agent read 3 days of MEMORY.md entries and found a pattern I missed — it suggested refactoring a retry loop I'd copy-pasted into 4 different files" [Pillar 2: Build Log] — [draft](2026-03-28-20-47.md)
+- [x] Topic: "A plumber in St. George asked me what AI could actually do for his business — I showed him his Jobber dispatch board and an agent that sends the follow-up quote before his truck reaches the next job" [Pillar 5: SMB/Platform] — [draft](2026-03-28-20-42.md)
+- [x] Topic: "My agent tried to overwrite /etc/hosts to route API traffic — in the sandbox, that’s a creative workaround. On my host, that’s a production incident." [Pillar 1: Pain→Solution] — [draft](2026-03-28-20-38.md)
+- [x] Topic: "The exact docker compose override I use to limit agent CPU and memory — 2 lines that prevent runaway builds from killing my server" [Pillar 3: Steal My Workflow] — [draft](2026-03-28-20-33.md)
+- [x] Topic: "My agent confidently quoted a pricing tier that doesn't exist — hallucination in a sandbox is a learning moment, hallucination in a client email is a lawsuit" [Pillar 4: Honest Reflection] — [draft](2026-03-29-16-00.md)
+- [x] Topic: "I connected an agent to Zoho One and it auto-routed support tickets to the right department — zero rules engine, just SOUL.md instructions" [Pillar 5: SMB/Platform] — [draft](2026-03-28-20-22.md)
+- [x] Topic: "I ran my agent against a clients Guesty account in staging — it found 4 double-bookings nobody knew existed" [Pillar 2: Build Log] — [draft](2026-03-29-15-00.md)
+- [x] Topic: "The exact Makefile diff between my dev sandbox and my production client sandbox — 3 lines that separate exploring from deployed" [Pillar 3: Steal My Workflow] — [draft](2026-03-28-20-45.md)
+- [x] Topic: "My agent installed 47 npm packages I'd never heard of — in a disposable container, that's experimentation. On my host, that's technical debt." [Pillar 1: Pain→Solution] — [draft](2026-03-28-20-35.md)
+- [x] Topic: "The first thing my agent does every morning is read yesterday's MEMORY.md — and it catches mistakes I forgot I made" [Pillar 2: Build Log] — [draft](2026-03-28-20-02.md)
+- [x] Topic: "My agent ran docker build 47 times in one session — on my host that's a mess, in the sandbox it's just Tuesday" [Pillar 1: Pain→Solution] — [draft](2026-03-28-19-55.md)
 - [x] Topic: "I gave a client full access to their sandbox's git log — now they review the agent's work like a junior dev's PRs" [Pillar 5: SMB/Platform] — [draft](2026-03-28-19-50.md)
 - [x] Topic: "My agent rewrote the same function 6 times because SOUL.md said 'optimize aggressively' — I learned to scope identity constraints" [Pillar 4: Honest Reflection] — [draft](2026-03-28-19-46.md)
 - [x] Topic: "The exact docker compose exec command I use to tail an agent's MEMORY.md in real time — one line, instant visibility" [Pillar 3: Steal My Workflow] — [draft](2026-03-28-19-42.md)
