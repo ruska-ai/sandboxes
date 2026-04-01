@@ -104,3 +104,7 @@ Add as an MCP server in the orchestra UI:
 | Headers | `{"x-api-key": "<API_KEY>"}` if auth is enabled, otherwise `{}` |
 
 The `exec_command` tool will appear when fetching tools from the configured server.
+
+## Claude Code
+
+Claude Code is installed by default in the sandbox image when available.
